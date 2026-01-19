@@ -1,7 +1,7 @@
 # 此工作流程将安装 Python 依赖，运行测试并用单一 Python 版本进行代码检查
 # 更多信息请见：https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: LOF  # 工作流名称
+name: sample  # 工作流名称
 
 # 触发条件
 on:
