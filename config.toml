@@ -1,0 +1,14 @@
+# config.toml
+# 方式1：使用点号语法定义嵌套表
+[jisilu]
+# [jisilu.index_lof] # 指数LOF
+list = ["161226","161005"]
+dis_limit = 0.5
+pre_limit = -0.3
+
+
+[jisilu.stock_lof] # 股票LOF
+
+[third_tool]
+fangtang_api_key = "SCT307716TPXhrxOD9akxyw13mq6XckpjP"
+
