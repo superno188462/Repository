@@ -4,6 +4,12 @@ third_tool_config = _config["third_tool"]
 config = _config["jisilu"]
 print(config)
 
+import sys
+import os
+
+# 添加当前目录到 Python 路径
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import pandas as pd
 from jisilu.jisilu_request import get_all_data
 from third_tool import fangtang_message
