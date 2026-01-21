@@ -42,4 +42,4 @@ jobs:
         # 2. 安装所需 Python 包
         pip install requests pytz datetime configparser pandas
         sed -i "s/FANGTANG_API_KE/${{ secrets.FANGTANG_API_KE }}/g" config.toml
-        python ./jisilu.py >> /dev/null
+        python jisilu.py >> /dev/null
