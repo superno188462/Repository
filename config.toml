@@ -3,7 +3,7 @@
 [jisilu]
 # [jisilu.index_lof] # 指数LOF
 list = ["161226","161005"]
-dis_limit = 0.5
+dis_limit = 0.51
 pre_limit = -0.3
 
 
