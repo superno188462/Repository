@@ -5,7 +5,7 @@ config = _config["jisilu"]
 print(config)
 
 import pandas as pd
-from jisilu.jisulu_request import get_all_data
+from jisilu.jisilu_request import get_all_data
 from third_tool import fangtang_message
 from tool import nested_dict, pd_to_md, pd_rename_columns, pd_select_columns
 
