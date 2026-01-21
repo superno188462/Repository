@@ -7,10 +7,10 @@ name: jisilu  # 工作流名称
 on:
   push:  # 推送代码时触发
     branches:
-    - master  # 仅针对 master 分支
+    - main  # 仅针对 master 分支
   pull_request:  # 创建拉取请求时触发
     branches:
-    - master  # 仅针对 master 分支
+    - main  # 仅针对 master 分支
   schedule:  # 定时任务
     # GitHub Actions 使用的是UTC时间，比北京时间慢八个小时
     # 例：如需调整为14:30，将45改为30即可
