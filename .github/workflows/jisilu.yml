@@ -37,11 +37,11 @@ jobs:
     - name: Run LOF script
       run: |  # 执行多行命令
         cd /home/runner/work/Repository/Repository
-        python -c "import sys; print(sys.path)"
         # 1. 升级 pip
         python -m pip install --upgrade pip
         
         # 2. 安装所需 Python 包
         pip install requests pandas
         sed -i "s/FANGTANG_API_KE/${{ secrets.FANGTANG_API_KE }}/g" config.toml
+        cat config.toml
         python jisilu_main.py >> /dev/null
