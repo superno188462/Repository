@@ -37,7 +37,12 @@ jobs:
     - name: Run LOF script
       run: |  # 执行多行命令
 
-        export PYTHONPATH=$GITHUB_WORKSPACE:$PYTHONPATH
+        # 1. 确保在项目根目录
+        cd $GITHUB_WORKSPACE
+        
+        # 2. 设置 Python 路径
+        export PYTHONPATH=$(pwd):$PYTHONPATH
+        
         # 1. 升级 pip
         python -m pip install --upgrade pip
         
