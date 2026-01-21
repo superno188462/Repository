@@ -1,0 +1,52 @@
+# 此工作流程将安装 Python 依赖，运行测试并用单一 Python 版本进行代码检查
+# 更多信息请见：https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: sample  # 工作流名称
+
+# 触发条件
+on:
+  push:  # 推送代码时触发
+    branches:
+    - master  # 仅针对 master 分支
+  pull_request:  # 创建拉取请求时触发
+    branches:
+    - master  # 仅针对 master 分支
+  schedule:  # 定时任务
+    # GitHub Actions 使用的是UTC时间，比北京时间慢八个小时
+    # 例：如需调整为14:30，将45改为30即可
+    # 设置仅周内运行，将最后一个'*'改为'1-5'
+    - cron: '45 6 * * *'  # 每天 UTC 时间 6:45 运行（对应北京时间 14:45）
+
+# 作业定义
+jobs:
+  LOF:  # 作业名称：LOF
+
+    runs-on: ubuntu-latest  # 运行环境：最新版 Ubuntu
+
+    steps:  # 步骤定义
+    # 第一步：检出代码仓库
+    - uses: actions/checkout@v2
+    
+    # 第二步：设置 Python 3.8 环境
+    - name: Set up Python version
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11  # 指定 Python 版本为
+    
+    # 第三步：运行 LOF 脚本
+    - name: Run LOF script
+      run: |  # 执行多行命令
+        # 1. 升级 pip
+        python -m pip install --upgrade pip
+        
+        # 2. 安装所需 Python 包
+        pip install requests pandas
+        
+        # 3. 替换配置文件中的密钥（使用 GitHub Secrets）
+        # sed 命令将 config.toml 文件中的 "FANGTANG_API_KEY" 替换为实际密钥
+        # ${{ secrets.FANGTANG_API_KEY }} 是 GitHub 加密存储的敏感信息
+        # s/查找的内容/替换的内容/标志
+        sed -i "s/FANGTANG_API_KEY/${{ secrets.FANGTANG_API_KEY }}/g" config.toml
+        
+        # 4. 运行 Python 脚本并丢弃输出（输出到 /dev/null）
+        python ./jisilu.py >> /dev/null
