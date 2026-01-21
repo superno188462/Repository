@@ -36,17 +36,11 @@ jobs:
     # 第三步：运行 LOF 脚本
     - name: Run LOF script
       run: |  # 执行多行命令
-
-        # 1. 确保在项目根目录
-        cd $GITHUB_WORKSPACE
-        
-        # 2. 设置 Python 路径
-        export PYTHONPATH=$(pwd):$PYTHONPATH
         
         # 1. 升级 pip
         python -m pip install --upgrade pip
         
         # 2. 安装所需 Python 包
-        pip install requests pytz datetime configparser pandas
+        pip install requests pandas
         sed -i "s/FANGTANG_API_KE/${{ secrets.FANGTANG_API_KE }}/g" config.toml
-        python jisilu.py >> /dev/null
+        python jisilu_main.py >> /dev/null
