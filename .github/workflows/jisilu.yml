@@ -42,6 +42,6 @@ jobs:
         
         # 2. 安装所需 Python 包
         pip install requests pandas
-        sed -i "s/FANGTANG_API_KE/${{ secrets.FANGTANG_API_KE }}/g" config.toml
+        sed -i "s/FANGTANG_API_KEY/${{ secrets.FANGTANG_API_KEY }}/g" config.toml
         cat config.toml
         python jisilu_main.py >> /dev/null
