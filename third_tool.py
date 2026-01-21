@@ -7,6 +7,7 @@ import requests
 
 # 可以把信息通过方糖服务号API传到微信等平台
 def fangtang_message(apiKey, title, content, session=requests.Session()):
+    print(apiKey,type(apiKey))
     data = {"text":title,"desp":content}
     msg_url = "https://sc.ftqq.com/{}.send".format(apiKey)
     session.post(msg_url, data=data, verify=False)
