@@ -36,7 +36,8 @@ jobs:
     # 第三步：运行 LOF 脚本
     - name: Run LOF script
       run: |  # 执行多行命令
-        
+        cd /home/runner/work/Repository/Repository
+        python -c "import sys; print(sys.path)
         # 1. 升级 pip
         python -m pip install --upgrade pip
         
