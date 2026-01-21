@@ -10,5 +10,5 @@ pre_limit = -0.3
 [jisilu.stock_lof] # 股票LOF
 
 [third_tool]
-fangtang_api_key = FANGTANG_API_KEY
+fangtang_api_key = "FANGTANG_API_KEY"
 
